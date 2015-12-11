@@ -27,7 +27,7 @@ In order to execute our program, you must have the following files in your worki
 
 8) "driver.py" - This is the final driver which runs all of the sub-functions; both the corner detection and corner matching together and produces the final serial and parallel images, with matching corners connected between the images. These images will be saved to your directory as "serial_match.jpg" and "parallel_match.jpg."
 
-### $ python driver.py <imgage1.tif> <imgage2.tif> <num_runs> (no default values provided)
+### $ python driver.py <imgage1.tif> <imgage2.tif> <num_runs> (no default values provided, user must specify all input values)
 
 9) "plot_times.py" - This will plot the execution times, comparing the performance of our various versions of corner detection matching versus serial implementation. The performance data is hard coded into this file. The plot will be saved to your directory as "corner_detection_performance.pdf" and "corner_matching_performance.pdf." Once again, we compared the performance of the corner detection and corner matching separately in order to maintain resolution on performance between versions and comparison to the original serial implementation. 
 
@@ -38,9 +38,3 @@ Execution of overall program (executes both our parallel implementations of corn
 With these files in your directory, execute the following command:
 
 ### $ python driver.py 1.tif 2.tif 100
-
-- '1.tif' and '2.tif,' are image files where corners will be detected and these corners will be matched. 
-
-- Two images with matching points indicated will be produced for both images, serial and parallel versions. 
-
-- '100' is the number of iterations each Harris Corner detector will be run for. All of these iterations produce the same output, these multiple runs are just executed for averaging run times.
