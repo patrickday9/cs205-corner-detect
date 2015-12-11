@@ -15,7 +15,7 @@ In order to execute our program, you must have the following files in your worki
 
 4) "harris_coner_detection_final_driver.py" - This is the final parallel corner detection python driver, which performed optimally. Profiling stats are provided with comparison to serial implementation. This will save two images to your directory, "Harris openCL Image.png" and "Harris Serial Image.png." To run, specify the image and number of iterations for timing profiling by running:
 
-python harris_coner_detection_final_driver.py \b{image1.tif} \b{num_runs} (uses "1.tif" with 100 iterations runs by default)
+python harris_coner_detection_final_driver.py (image1.tif) (num_runs) (uses "1.tif" with 100 iterations runs by default)
 
 5) "harris_coner_detection_final.cl" - This is the final parallel corner detection openCL kernels, which performed optimally. This is called by harris_coner_detection_final_driver.py. 
 
