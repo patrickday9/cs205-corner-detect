@@ -309,7 +309,7 @@ if __name__ == '__main__':
 
     # Execute the Parallel Matching Algorthim
     parallel_matches = parallel_matching(harris_im1, harris_im2, filtered_coords1, filtered_coords2, 
-        opencl_file='match_preprocess_online_v1.cl', runs=num_runs, run_serial=True)
+        opencl_file='match_preprocess_online_v4.cl', runs=num_runs, run_serial=True)
     
     # Plot results
     match_plot(np_im1, np_im2, filtered_coords1, filtered_coords2, parallel_matches, show_below=False)
