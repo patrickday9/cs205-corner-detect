@@ -53,7 +53,7 @@ if __name__ == '__main__':
 		output_times_serial_2  = harris_get_corners(num_runs, image2)			
 
 	# Run Parallel Matching and Sort with Parallel Harris corners
-	match_parallel = parallel_matching(Harris_Matrix_1, Harris_Matrix_2, \
+	match_parallel = parallel_match_sort(Harris_Matrix_1, Harris_Matrix_2, \
 		parallel_points_1, parallel_points_2)
 
 	# Run Parallel Matching and Sort with Parallel Harris corners
