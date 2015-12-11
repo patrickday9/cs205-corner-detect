@@ -117,8 +117,8 @@ parallel_sort(__global const float *in,
   float init = -1* in[y * w + x];
   int pos = 0;
 
-  // Tournment Style Update, threads decrease in every iteration
-  for (int j=y/n; j<0; j--) {
+  // Sort Entire list
+  for (int j=0; j<n; j++) {
     // Grab a candidate to update
     float update = -1 * in[y * w + j];
     
