@@ -99,6 +99,7 @@ corner_match(__global __read_only float *image1,
 
 }
 
+// Kernel for parallel sorting
 __kernel void 
 parallel_sort(__global const float *in,
                   __global float *out,
@@ -106,22 +107,30 @@ parallel_sort(__global const float *in,
                   int w)
 {
   
-  int x = get_global_id(0);   // current thread
-  int y = get_global_id(1);   // current thread
+  int x = get_global_id(0); // values for the columns
+  int y = get_global_id(1); // values for the rows
   
-  int n = get_global_size(0); // input size
-  int m = get_global_size(1); // input size
+  int n = get_global_size(0); // global column size
+  int m = get_global_size(1); // global rows size
   
-
+  // Make positive since all values in the out matching matrix are negative
   float init = -1* in[y * w + x];
   int pos = 0;
 
-  for (int j=0; j<n; j++) {
-    float update = -1 * in[y * w + j]; // broadcasted
+  // Tournment Style Update, threads decrease in every iteration
+  for (int j=y/n; j<0; j--) {
+    // Grab a candidate to update
+    float update = -1 * in[y * w + j];
+    
+    // Check if the update is smaller than the orginal value
     bool smaller = (update < init) || (update == init && j < x);
+    
+    // If update is smaller, increase the position
     if (smaller == true)
       pos +=1;
   }
+  
+  // Save to output
   out[y * w + pos] = -1 * init;
   ind[y * w + pos] = x;
     
