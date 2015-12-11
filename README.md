@@ -38,3 +38,6 @@ Execution of overall program (executes both our parallel implementations of corn
 With these files in your directory, execute the following command:
 
 ### $ python driver.py 1.tif 2.tif 100
+
+#### For additional details on our code and implementation, please visit:
+https://sites.google.com/a/g.harvard.edu/parallel-corner-detection/home
